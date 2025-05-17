@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,9 @@ public class CheckboxesTest {
 
     @Test
     void tc02() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
         WebElement checkBox1 = driver.findElement(By.xpath("//form[@id='checkboxes']/input[1]"));
@@ -42,7 +45,9 @@ public class CheckboxesTest {
 
     @Test
     void verifyCheckAllButtonWorking() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://moatazeldebsy.github.io/test-automation-practices/#/checkboxes");
 
         driver.findElement(By.xpath("//button[@data-test='check-all-button']")).click();
@@ -57,7 +62,9 @@ public class CheckboxesTest {
 
     @Test
     void verifyUnCheckAllButtonWorking() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://moatazeldebsy.github.io/test-automation-practices/#/checkboxes");
 
         driver.findElement(By.xpath("//*[@data-test='check-all-button']")).click();
@@ -73,7 +80,9 @@ public class CheckboxesTest {
 
     @Test
     void ableToUncheckAllCheckboxes() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://moatazeldebsy.github.io/test-automation-practices/#/checkboxes");
 
         driver.findElement(By.cssSelector("button[data-test='check-all-button']")).click();
