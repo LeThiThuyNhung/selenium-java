@@ -28,4 +28,4 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: run test
-        run: mvn mvn clean test -Dtestplan=login-testplan.xml
+        run: mvn clean test -Dtestplan=login-testplan.xml
