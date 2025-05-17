@@ -1,0 +1,8 @@
+<suite name="TVN Test Suit">
+    <test name="login">
+        <classes>
+            <class name="demo.SampleTest1">
+            </class>
+        </classes>
+    </test>
+</suite>
