@@ -16,11 +16,10 @@ public class BookingTest {
     @Test
 
     void verifyDaySelected() {
-         FirefoxOptions firefoxOptions = new FirefoxOptions();
-         firefoxOptions.addArguments("--headless=new"); // hoặc chỉ "--headless"
-         firefoxOptions.addArguments("--no-sandbox");
-         firefoxOptions.addArguments("--disable-dev-shm-usage");
-         WebDriver driver = new FirefoxDriver(firefoxOptions);
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--headless");
+
+        WebDriver driver = new FirefoxDriver(options);
          driver.get("https://www.vietnamairlines.com/vn/vi/Home");
 
          driver.findElement(By.xpath("//button[.='Đồng ý']")).click();
