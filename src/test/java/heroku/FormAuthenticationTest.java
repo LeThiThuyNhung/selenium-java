@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.heroku.FormAuthenticationPage;
+import utils.Browser;
 
 import static utils.Browser.*;
 
@@ -18,9 +19,10 @@ public class FormAuthenticationTest extends TestBase {
     }
 
 
-    //@Parameters ({"browser"})
+    @Parameters ({"browser"})
     @Test
-    void tc01() {
+    void tc01(String browser) {
+        //Browser.openBrowser(browser);
         formAuthenticationPage
                 .open()
                 .login("tomsmith", "SuperSecretPassword!");

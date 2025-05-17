@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -31,7 +32,9 @@ public class DynamicLoadingTest {
 
     @Test
     void captureScreenShot(){
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/context_menu");
 
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;

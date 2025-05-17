@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +17,9 @@ public class DropDownTest {
 
     @Test
     void tc03() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/dropdown");
         Select select = new Select(driver.findElement(By.id("dropdown")));
         select.selectByVisibleText("Option 1");
@@ -27,7 +30,9 @@ public class DropDownTest {
 
     @Test
     void abSelectMultipleOptions() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://output.jsbin.com/osebed/2");
 
         Select select = new Select(driver.findElement(By.id("fruits")));
@@ -54,7 +59,9 @@ public class DropDownTest {
 
     @Test
     void verifyTextFieldDisabledByXpath() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -68,7 +75,9 @@ public class DropDownTest {
 
     @Test
     void verifyTextFieldDisable() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

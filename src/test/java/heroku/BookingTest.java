@@ -2,6 +2,8 @@ package heroku;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +22,9 @@ public class BookingTest {
     verify day selected
          */
     void verifyDaySelected() {
-         WebDriver driver = new FirefoxDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+         WebDriver driver = new ChromeDriver(chromeOptions);
          driver.get("https://www.vietnamairlines.com/vn/vi/Home");
 
          driver.findElement(By.xpath("//button[.='Đồng ý']")).click();
