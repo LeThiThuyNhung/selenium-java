@@ -18,7 +18,6 @@ public class FormAuthenticationPage {
     }
 
     public String getWelcomeMessage() {
-        return getText(By.tagName("h4"));
+        return getText(By.id("flash-messages"));
     }
 }
-

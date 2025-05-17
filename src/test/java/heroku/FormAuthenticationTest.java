@@ -19,16 +19,15 @@ public class FormAuthenticationTest extends TestBase {
     }
 
 
-    @Parameters ({"browser"})
+    //@Parameters ({"browser"})
     @Test
-    void tc01(String browser) {
-        //Browser.openBrowser(browser);
+    void tc01() {
         formAuthenticationPage
                 .open()
                 .login("tomsmith", "SuperSecretPassword!");
         Assert.assertTrue(formAuthenticationPage
                 .getWelcomeMessage()
-                .contains("Welcome to the Secure Area. When you are done click logout below."));
+                .contains(" You logged into a secure area!"));
         Assert.assertEquals(getCurrentUrl(), "https://the-internet.herokuapp.com/secure");
     }
 

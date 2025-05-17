@@ -28,6 +28,8 @@ public class DynamicLoadingTest {
 
         String finishText = driver.findElement(By.id("finish")).getText();
         Assert.assertTrue(finishText.contains("Hello World!"));
+
+        driver.quit();
     }
 
     @Test
@@ -45,5 +47,7 @@ public class DynamicLoadingTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        driver.quit();
     }
 }

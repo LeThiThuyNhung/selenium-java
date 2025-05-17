@@ -2,9 +2,9 @@ package heroku;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,9 +22,9 @@ public class BookingTest {
     verify day selected
          */
     void verifyDaySelected() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless=new");
-         WebDriver driver = new ChromeDriver(chromeOptions);
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--headless=new");
+         WebDriver driver = new FirefoxDriver(firefoxOptions);
          driver.get("https://www.vietnamairlines.com/vn/vi/Home");
 
          driver.findElement(By.xpath("//button[.='Đồng ý']")).click();
@@ -46,7 +46,7 @@ public class BookingTest {
                 .click();
 
          driver.findElements(By.cssSelector(".ui-datepicker-group-first a")).stream()
-                 .filter(x -> x.getText().equals("7"))
+                 .filter(x -> x.getText().equals("30"))
                  .findFirst()
                  .get()
                  .click();
@@ -56,7 +56,7 @@ public class BookingTest {
                          ExpectedConditions
                                  .visibilityOfElementLocated(By.id("roundtrip-date-depart")))
                  .getDomProperty("value");
-        Assert.assertEquals(departDate, "07/04/2025");
+        Assert.assertEquals(departDate, "30/05/2025");
 
         driver.quit();
     }

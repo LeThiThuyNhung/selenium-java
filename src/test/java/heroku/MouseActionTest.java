@@ -28,7 +28,9 @@ public class MouseActionTest {
 
     @Test
     void dragAndDropTest() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/drag_and_drop");
 
         Actions action = new Actions(driver);
@@ -45,7 +47,9 @@ public class MouseActionTest {
 
     @Test
     void horizontalSliderTest() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/horizontal_slider");
 
         Actions action = new Actions(driver);
@@ -60,7 +64,9 @@ public class MouseActionTest {
 
     @Test
     void infiniteScrollTest() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/infinite_scroll");
 
         Actions action = new Actions(driver);
@@ -75,7 +81,9 @@ public class MouseActionTest {
 
     @Test
     void contextMenuTest() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/context_menu");
 
         Actions action = new Actions(driver);
@@ -88,12 +96,14 @@ public class MouseActionTest {
 
         Assert.assertTrue(driver.getCurrentUrl().contains("context_menu"));
 
-//        driver.quit();
+        driver.quit();
     }
 
     @Test
     void keyPressTest() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/key_presses");
 
         Actions action = new Actions(driver);
@@ -102,6 +112,6 @@ public class MouseActionTest {
         String resultText = driver.findElement(By.id("result")).getText();
         Assert.assertTrue(resultText.contains("You entered: ESCAPE"));
 
-//        driver.quit();
+       driver.quit();
     }
 }

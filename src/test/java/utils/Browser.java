@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Browser {
     public static WebDriver driver;
@@ -25,7 +27,13 @@ public class Browser {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
-                driver = new ChromeDriver();
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credential_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                prefs.put("profile.password_manager_leak_detection", false);
+                chromeOptions.setExperimentalOption("prefs", prefs);
+                chromeOptions.addArguments("--disable-password-manager-leak-detection");
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
