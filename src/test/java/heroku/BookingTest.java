@@ -14,13 +14,7 @@ import java.time.Duration;
 
 public class BookingTest {
     @Test
-    /*
-    open browser
-    navigate to https://www.vietnamairlines.com/vn/vi/Home
-    select 1 chieu
-    select day 7/4/2025
-    verify day selected
-         */
+
     void verifyDaySelected() {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("--headless=new");

@@ -19,7 +19,9 @@ import java.time.Duration;
 public class DynamicLoadingTest {
     @Test
     void verifyDynamicLoading() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
 
         driver.findElement(By.xpath("//button[.='Start']")).click();
