@@ -27,7 +27,7 @@ public class FormAuthenticationTest extends TestBase {
                 .login("tomsmith", "SuperSecretPassword!");
         Assert.assertTrue(formAuthenticationPage
                 .getWelcomeMessage()
-                .contains(" You logged into a secure area!"));
+                .contains("You logged into a secure area!"));
         Assert.assertEquals(getCurrentUrl(), "https://the-internet.herokuapp.com/secure");
     }
 
